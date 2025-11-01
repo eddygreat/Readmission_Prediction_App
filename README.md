@@ -1,4 +1,4 @@
-# Hospital Readmission Prediction (UCI Diabetes)
+[Hospital_Readmission_Prediction_Report (2) (1).pdf](https://github.com/user-attachments/files/23281911/Hospital_Readmission_Prediction_Report.2.1.pdf)# Hospital Readmission Prediction (UCI Diabetes)
 
 An end-to-end ML workflow to predict 30-day hospital readmission using the UCI Diabetes Readmission dataset.
 
@@ -128,3 +128,6 @@ flowchart LR
 
 ## Notes
 - This repo does not include the dataset. Place `diabetic_data.csv` under `data/` before running.
+
+Report pdf:  [Uploading Hospital_Readmission_Prediction_Report (2) (1).pdf…]()
+
