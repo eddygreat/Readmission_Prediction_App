@@ -2,6 +2,9 @@
 
 An end-to-end ML workflow to predict 30-day hospital readmission using the UCI Diabetes Readmission dataset.
 
+## Live App
+- Deployed on Streamlit: https://alpha-readmission-prediction.streamlit.app/
+
 ## Objectives
 - Improve patient outcomes by flagging high-risk readmissions.
 - Reduce costs from avoidable readmissions.
@@ -89,6 +92,9 @@ Features:
 - Upload CSV with same schema as raw dataset.
 - Scores each row for 30-day readmission risk.
 - Shows aggregate precision/recall if ground truth provided.
+
+Live deployment:
+- https://alpha-readmission-prediction.streamlit.app/
 
 ## Monitoring and Concept Drift
 - Inference logs appended to `logs/metrics.jsonl` with timestamps.
