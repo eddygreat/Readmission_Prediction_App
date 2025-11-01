@@ -1,6 +1,5 @@
 ## An end-to-end ML workflow to predict 30-day hospital readmission using the UCI Diabetes Readmission dataset.
 
-[Hospital_Readmission_Prediction_Report (2) (1).pdf](https://github.com/user-attachments/files/23281911/Hospital_Readmission_Prediction_Report.2.1.pdf) # Answers to Hospital Readmission Prediction (UCI Diabetes) Project questions
 
 ## Live App
 - Deployed on Streamlit: https://alpha-readmission-prediction.streamlit.app/
@@ -129,5 +128,6 @@ flowchart LR
 ## Notes
 - This repo does not include the dataset. Place `diabetic_data.csv` under `data/` before running.
 
-Report pdf:  [Uploading Hospital_Readmission_Prediction_Report (2) (1).pdf…]()
+Report pdf:  
+[Hospital Readmission Prediction using AI.pdf](https://github.com/user-attachments/files/23282547/Hospital.Readmission.Prediction.using.AI.pdf)
 
