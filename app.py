@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import json
+import os
 from pathlib import Path
 
 import joblib
@@ -9,6 +10,7 @@ import streamlit as st
 import numpy as np
 from sklearn.utils.validation import check_is_fitted
 import matplotlib.pyplot as plt
+import requests
 
 from src.config import MODEL_PATH, MODELS_DIR, TARGET_COL, ID_COLS
 from src.data import basic_clean
@@ -20,6 +22,28 @@ st.title("Hospital Readmission Prediction")
 
 @st.cache_resource
 def load_model():
+    if not MODEL_PATH.exists():
+        model_url = st.secrets.get("MODEL_URL", None)
+        if model_url is None:
+            model_url = os.getenv("MODEL_URL")
+        if model_url:
+            MODELS_DIR.mkdir(parents=True, exist_ok=True)
+            r = requests.get(model_url, stream=True, timeout=60)
+            r.raise_for_status()
+            with open(MODEL_PATH, "wb") as f:
+                for chunk in r.iter_content(chunk_size=8192):
+                    if chunk:
+                        f.write(chunk)
+            feat_url = st.secrets.get("FEATURE_COLUMNS_URL", None)
+            if feat_url is None:
+                feat_url = os.getenv("FEATURE_COLUMNS_URL")
+            if feat_url:
+                fr = requests.get(feat_url, timeout=30)
+                fr.raise_for_status()
+                with open(MODELS_DIR / "feature_columns.json", "wb") as f2:
+                    f2.write(fr.content)
+        else:
+            return None, None
     model = joblib.load(MODEL_PATH)
     feat_file = MODELS_DIR / "feature_columns.json"
     feature_cols = None
@@ -32,7 +56,8 @@ def load_model():
 model, feature_cols = load_model()
 
 if model is None:
-    st.error("Model not found. Please run training first: python -m src.train")
+    st.error("Model not found. Set MODEL_URL in Streamlit secrets or environment, then reload.")
+    st.info("Example: add MODEL_URL to st.secrets or env; optionally FEATURE_COLUMNS_URL for feature_columns.json.")
     st.stop()
 
 st.sidebar.header("Actions")
