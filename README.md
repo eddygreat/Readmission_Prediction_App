@@ -1,7 +1,6 @@
+## An end-to-end ML workflow to predict 30-day hospital readmission using the UCI Diabetes Readmission dataset.
 
 [Hospital_Readmission_Prediction_Report (2) (1).pdf](https://github.com/user-attachments/files/23281911/Hospital_Readmission_Prediction_Report.2.1.pdf) # Answers to Hospital Readmission Prediction (UCI Diabetes) Project questions
-
-An end-to-end ML workflow to predict 30-day hospital readmission using the UCI Diabetes Readmission dataset.
 
 ## Live App
 - Deployed on Streamlit: https://alpha-readmission-prediction.streamlit.app/
