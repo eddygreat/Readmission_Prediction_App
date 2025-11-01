@@ -1,0 +1,10 @@
+.DS_Store
+__pycache__/
+*.pyc
+.env
+models/
+logs/
+*.joblib
+*.pkl
+.env*
+.streamlit/
